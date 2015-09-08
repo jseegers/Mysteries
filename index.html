@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset=utf-8 />
+    <title></title>
+    <script src='https://api.tiles.mapbox.com/mapbox.js/v2.2.0/mapbox.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox.js/v2.2.0/mapbox.css' rel='stylesheet' />
+    <script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-mapbox/dist/angular-mapbox.js"></script>
+    <script src="bower_components/angular-leaflet-directive/dist/angular-leaflet-directive.js"></script>
+    <link rel="stylesheet" href="bower_components/leaflet/dist/leaflet.css">
+    <link href='style.css' rel='stylesheet' />
+
+
+
+</head>
+<script src="script.js"></script>
+
+<body ng-app="app">
+    <div ng-controller="MapController">
+        <mapbox map-id="jseegers.4a299e8d">
+            <feature-layer url="Mysteries.json"></feature-layer>
+        </mapbox>
+    </div>
+
+</body>
+
+</html>

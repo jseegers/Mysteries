@@ -1,0 +1,520 @@
+{
+    "type": "FeatureCollection",
+    "crs": {
+        "type": "name",
+        "properties": {
+            "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+        }
+    },
+    "features": [{
+        "type": "Feature",
+        "properties": {
+            "Name": "Baltimore",
+            "Description": ""
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [-76.61226731256791, 39.29033455432876, 0]
+        }
+    }, {
+        "type": "Feature",
+        "properties": {
+            "Name": "Brighton",
+            "Description": ""
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [-0.137163537945554, 50.82252993929784, 0]
+        }
+    }, {
+        "type": "Feature",
+        "properties": {
+            "Name": "Butte",
+            "Description": ""
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [-112.5342342048146, 46.00383924117026, 0]
+        }
+    }, {
+        "type": "Feature",
+        "properties": {
+            "Name": "Cape Cod",
+            "Description": ""
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [-70.47913662901021, 41.67873714137391, 0]
+        }
+    }, {
+        "type": "Feature",
+        "properties": {
+            "Name": "Chicago",
+            "Description": ""
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [-87.6249704360027, 41.8781056981025, 0]
+        }
+    }, {
+        "type": "Feature",
+        "properties": {
+            "Name": "Alabama",
+            "Description": ""
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [-86.90229820879026, 32.31823161826173, 0]
+        }
+    }, {
+        "type": "Feature",
+        "properties": {
+            "Name": "London",
+            "Description": ""
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [-0.125673191710776, 51.50709469804308, 0]
+        }
+    }, {
+        "type": "Feature",
+        "properties": {
+            "Name": "Dorset",
+            "Description": ""
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [-2.337854372827058, 50.73919935924606, 0]
+        }
+    }, {
+        "type": "Feature",
+        "properties": {
+            "Name": "East Germany",
+            "Description": ""
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [13.02864097826157, 52.09548741670442, 0]
+        }
+    }, {
+        "type": "Feature",
+        "properties": {
+            "Name": "Egypt",
+            "Description": ""
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [30.80042687718624, 26.82404678328901, 0]
+        }
+    }, {
+        "type": "Feature",
+        "properties": {
+            "Name": "Shrewsbury Abbey",
+            "Description": ""
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [-2.744037261063236, 52.70756587897961, 0]
+        }
+    }, {
+        "type": "Feature",
+        "properties": {
+            "Name": "Galloway",
+            "Description": ""
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [-4.193384828112627, 55.06226629657601, 0]
+        }
+    }, {
+        "type": "Feature",
+        "properties": {
+            "Name": "Geneva",
+            "Description": ""
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [6.142016375754062, 46.19865299461021, 0]
+        }
+    }, {
+        "type": "Feature",
+        "properties": {
+            "Name": "Naples",
+            "Description": ""
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [14.21632836757104, 40.85716356287401, 0]
+        }
+    }, {
+        "type": "Feature",
+        "properties": {
+            "Name": "Paris",
+            "Description": ""
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [2.354480554731981, 48.85520664269639, 0]
+        }
+    }, {
+        "type": "Feature",
+        "properties": {
+            "Name": "Petrograd",
+            "Description": ""
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [30.33504800146086, 59.93426333173473, 0]
+        }
+    }, {
+        "type": "Feature",
+        "properties": {
+            "Name": "Havana",
+            "Description": ""
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [-82.27084563145584, 23.159221305763, 0]
+        }
+    }, {
+        "type": "Feature",
+        "properties": {
+            "Name": "Los Angeles",
+            "Description": ""
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [-118.3285838608875, 34.09278779062425, 0]
+        }
+    }, {
+        "type": "Feature",
+        "properties": {
+            "Name": "Devonshire Coast",
+            "Description": ""
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [-4.385282505973604, 51.04631691493831, 0]
+        }
+    }, {
+        "type": "Feature",
+        "properties": {
+            "Name": "Israel",
+            "Description": ""
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [34.85115207464701, 31.04630766056278, 0]
+        }
+    }, {
+        "type": "Feature",
+        "properties": {
+            "Name": "Istanbul",
+            "Description": ""
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [28.97696086810584, 41.00526822114011, 0]
+        }
+    }, {
+        "type": "Feature",
+        "properties": {
+            "Name": "Italy",
+            "Description": ""
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [12.5673808320594, 41.8719458129024, 0]
+        }
+    }, {
+        "type": "Feature",
+        "properties": {
+            "Name": "Kansas",
+            "Description": ""
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [-98.47708310430293, 39.01202682965933, 0]
+        }
+    }, {
+        "type": "Feature",
+        "properties": {
+            "Name": "South Carolina",
+            "Description": ""
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [-81.16471322578948, 33.83638340333528, 0]
+        }
+    }, {
+        "type": "Feature",
+        "properties": {
+            "Name": "Norway",
+            "Description": ""
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [8.467000845471027, 60.4716970187223, 0]
+        }
+    }, {
+        "type": "Feature",
+        "properties": {
+            "Name": "Spain",
+            "Description": ""
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [-3.748294431044739, 40.46545934635155, 0]
+        }
+    }, {
+        "type": "Feature",
+        "properties": {
+            "Name": "Hungary",
+            "Description": ""
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [19.50096638191858, 47.16186842704474, 0]
+        }
+    }, {
+        "type": "Feature",
+        "properties": {
+            "Name": "Massachusetts",
+            "Description": ""
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [-71.38020977869536, 42.40730506571576, 0]
+        }
+    }, {
+        "type": "Feature",
+        "properties": {
+            "Name": "Memphis",
+            "Description": ""
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [-90.04897991340955, 35.14953436988021, 0]
+        }
+    }, {
+        "type": "Feature",
+        "properties": {
+            "Name": "Miami",
+            "Description": ""
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [-80.19183078721557, 25.76172004147974, 0]
+        }
+    }, {
+        "type": "Feature",
+        "properties": {
+            "Name": "Mississippi",
+            "Description": ""
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [-89.39778688873359, 32.35415601161325, 0]
+        }
+    }, {
+        "type": "Feature",
+        "properties": {
+            "Name": "Moscow",
+            "Description": ""
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [37.61524684211552, 55.75566348207906, 0]
+        }
+    }, {
+        "type": "Feature",
+        "properties": {
+            "Name": "New Mexico",
+            "Description": ""
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [-105.8693710983456, 34.51999136094896, 0]
+        }
+    }, {
+        "type": "Feature",
+        "properties": {
+            "Name": "New York City",
+            "Description": ""
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [-74.00647984733114, 40.71268622330801, 0]
+        }
+    }, {
+        "type": "Feature",
+        "properties": {
+            "Name": "Oxford",
+            "Description": ""
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [-1.257765354848099, 51.75201634257228, 0]
+        }
+    }, {
+        "type": "Feature",
+        "properties": {
+            "Name": "Polyarny",
+            "Description": ""
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [33.44999738605277, 69.19999908570962, 0]
+        }
+    }, {
+        "type": "Feature",
+        "properties": {
+            "Name": "Rochester",
+            "Description": ""
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [0.506736728287913, 51.38801036737075, 0]
+        }
+    }, {
+        "type": "Feature",
+        "properties": {
+            "Name": "San Francisco",
+            "Description": ""
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [-122.4189851281846, 37.77496027945701, 0]
+        }
+    }, {
+        "type": "Feature",
+        "properties": {
+            "Name": "Santa Barbara",
+            "Description": ""
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [-119.6982479271878, 34.4209032389082, 0]
+        }
+    }, {
+        "type": "Feature",
+        "properties": {
+            "Name": "South Africa",
+            "Description": ""
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [22.93484268883734, -30.55906750786594, 0]
+        }
+    }, {
+        "type": "Feature",
+        "properties": {
+            "Name": "St. Louis",
+            "Description": ""
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [-90.19933233975392, 38.62698256189063, 0]
+        }
+    }, {
+        "type": "Feature",
+        "properties": {
+            "Name": "St. Petersburg",
+            "Description": ""
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [30.33509854819088, 59.93428022010595, 0]
+        }
+    }, {
+        "type": "Feature",
+        "properties": {
+            "Name": "Stockholm",
+            "Description": ""
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [18.068636336423, 59.32932626062698, 0]
+        }
+    }, {
+        "type": "Feature",
+        "properties": {
+            "Name": "Sunnyside, PA",
+            "Description": ""
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [-76.57842224056868, 40.81645897280519, 0]
+        }
+    }, {
+        "type": "Feature",
+        "properties": {
+            "Name": "Tennessee",
+            "Description": ""
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [-86.57924088532694, 35.51815125244905, 0]
+        }
+    }, {
+        "type": "Feature",
+        "properties": {
+            "Name": "Texas",
+            "Description": ""
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [-99.90159600155842, 31.968657036633, 0]
+        }
+    }, {
+        "type": "Feature",
+        "properties": {
+            "Name": "The Fens",
+            "Description": ""
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [-1.232923657304869, 54.65402651217889, 0]
+        }
+    }, {
+        "type": "Feature",
+        "properties": {
+            "Name": "UP",
+            "Description": ""
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [-87.39521131785386, 46.53747654625612, 0]
+        }
+    }, {
+        "type": "Feature",
+        "properties": {
+            "Name": "Vienna",
+            "Description": ""
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [16.37380822050169, 48.20817417545577, 0]
+        }
+    }, {
+        "type": "Feature",
+        "properties": {
+            "Name": "Vinkovci",
+            "Description": ""
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [18.80567625784839, 45.28790805512487, 0]
+        }
+    }, {
+        "type": "Feature",
+        "properties": {
+            "Name": "Yorkshire",
+            "Description": ""
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [-1.535484497861854, 53.83865453641243, 0]
+        }
+    }]
+}
