@@ -1,4 +1,4 @@
-var app = angular.module("app", ["leaflet-directive"]);
+var app = angular.module("app", ["leaflet-directive", "ui.bootstrap"]);
 
 /*app.controller('MapController', function ($scope, $timeout, mapboxService) {*/
 app.controller("MapController", ['$scope', '$http', 'leafletData', function ($scope, $http, leafletData) {
@@ -26,10 +26,37 @@ app.controller("MapController", ['$scope', '$http', 'leafletData', function ($sc
         }
 
     });
-
+    $scope.LocArray = [];
     $http.get("Mysteries.json").success(function (data) {
+        makeLocArray(data);
         addGeoJsonLayer(data);
     });
+
+    $http.get("books.json").success(function (data) {
+        var booksJson = data;
+        checkBookStuff(data);
+    });
+
+    function makeLocArray(data) {
+        setTimeout(function () {
+            $scope.$apply(function () {
+                for (var i = 0; i < data.features.length; i++) {
+                    $scope.LocArray.push(data.features[i].properties.Name)
+                }
+            });
+        }, 2000);
+        console.log("I happened!")
+    }
+
+    function markerClick() {
+        console.log(this)
+    }
+
+    function checkBookStuff(data) {
+        for (var i = 0; i < data.length; i++) {
+            //console.log(data[i].Location)
+        }
+    }
 
     function onEachFeature(feature, layer) {
         if (feature.properties && feature.properties.Name) {
@@ -45,27 +72,26 @@ app.controller("MapController", ['$scope', '$http', 'leafletData', function ($sc
         fillOpacity: 0.6
     };
     var myIcon = L.divIcon({
-        className: 'my-div-icon'
+        className: 'trigger'
     });
+
 
     function addGeoJsonLayer(data) {
         leafletData.getMap().then(function (map) {
             L.geoJson(data, {
                 pointToLayer: function (feature, latlng) {
                     return L.circleMarker(latlng, geojsonMarkerOptions);
-                },
-                onEachFeature: onEachFeature
+                }
             }).addTo(map)
-/*            L.geoJson(data, {
+            L.geoJson(data, {
                 pointToLayer: function (feature, latlng) {
                     return L.marker(latlng, {
                         icon: myIcon
-                    });
-                },
-                onEachFeature: onEachFeature
-            }).addTo(map);*/
+                    })
+                }
+            }).addTo(map).on('click', markerClick);;
         });
-        
+
 
     }
 }]);
