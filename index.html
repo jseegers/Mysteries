@@ -13,8 +13,13 @@
     <script src="../bower_components/leaflet/dist/leaflet.js"></script>
     <script src="../bower_components/angular-simple-logger/dist/index.js"></script>
     <script src="bower_components/angular-leaflet-directive/dist/angular-leaflet-directive.js"></script>
+    <link rel="stylesheet" href="bower_components/perfect-scrollbar/min/perfect-scrollbar.min.css" />
+    <script src="bower_components/perfect-scrollbar/min/perfect-scrollbar.min.js"></script>
+    <script src="bower_components/angular-perfect-scrollbar/src/angular-perfect-scrollbar.js"></script>
     <link rel="stylesheet" href="bower_components/leaflet/dist/leaflet.css" />
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link href='https://fonts.googleapis.com/css?family=Special+Elite' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
     <link href='style.css' rel='stylesheet' />
 
 
@@ -23,17 +28,28 @@
 <script src="script.js"></script>
 
 <body ng-app="app">
+    <div class="h1">THE MOST MURDEROUS CITY</div>
+    <div class="h2">according to mystery novels</div>
     <div ng-controller="MapController">
-        <leaflet id="map" lf-center="center" tiles="tiles" width="100%" height="480px"></leaflet>
+        <leaflet id="map" lf-center="center" defaults=defaults tiles="tiles" width="100%" height="480px"></leaflet>
         <!--<mapbox map-id="jseegers.4a299e8d">
             <feature-layer url="Mysteries.json" symbol="grocery"></feature-layer>
         </mapbox>-->
-        <accordion close-others="oneAtATime">
-            <accordion-group heading="{{group}}" ng-repeat="group in LocArray">
-                hi there
-            </accordion-group>
-        </accordion>
+        <perfect-scrollbar class="sidebar" wheel-propagation="true" wheel-speed="10" min-scrollbar-length="20">
+            <accordion close-others="true">
+                <accordion-group heading="{{location.name}}" id={{location.name}} ng-repeat="location in LocArray" is-open="location.open" ng-click="locationHighlight(location.name)">
+                    <accordion close-others="true">
+                        <accordion-group heading="{{group.title}}" ng-repeat="group in AllBooks[location.name]">
+                            Author: {{group.author}}
+                            <br> Published: {{group.year}}
+                        </accordion-group>
+                    </accordion>
+                </accordion-group>
+            </accordion>
+        </perfect-scrollbar>
+
     </div>
+
 
 </body>
 

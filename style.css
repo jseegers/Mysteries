@@ -1,12 +1,29 @@
 body {
     margin: 0;
     padding: 0;
+    background-color: black;
+    font-family: 'Special Elite', cursive;
 }
 #map{
-    width: 1024px;
     height: 768px;
+    float: right;
+    width: 100%;
+    position: absolute;
+    background-color: black;
+    
 }
-
+.sidebar {
+    float: left;
+    width: 25%;
+    height: 470px;
+    position: relative;
+    padding: 20px;
+    overflow: scroll;
+    overflow-y: hidden;
+}
+.panel panel-default{
+    height: 50px;
+}
 .css-icon {
 	width: 10px;
 	height: 10px;
