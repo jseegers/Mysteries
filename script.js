@@ -59,7 +59,11 @@ app.controller("MapController", ['$scope', '$http', 'leafletData', function ($sc
         }
     }
     $scope.cleanUpNames = function (name) {
-        return name.replace(" ", "");
+        var cleanedName = name.replace(" ", "");
+        if (cleanedName == "NewYork City"){
+         cleanedName = "NewYorkCity";   
+        }
+        return cleanedName;
     }
 
     function getRadius(name) {
@@ -70,6 +74,9 @@ app.controller("MapController", ['$scope', '$http', 'leafletData', function ($sc
     $scope.locationHighlight = function (name) {
         var cleanedName = name.replace(" ", "");
         resetColors();
+        if (cleanedName == "NewYork City"){
+         cleanedName = "NewYorkCity";   
+        }
         $('.sidebar').animate({
             scrollTop: $('#' + cleanedName).offset().top - $('.sidebar').offset().top + $('.sidebar').scrollTop()
         })
@@ -175,7 +182,7 @@ app.controller("MapController", ['$scope', '$http', 'leafletData', function ($sc
                         $scope.Location = feature.properties.Name;
                         $scope.LocArray
                         $('.sidebar').animate({
-                            scrollTop: $('#' + layer.feature.properties.Name).offset().top - $('.sidebar').offset().top + $('.sidebar').scrollTop()
+                            scrollTop: $('#' + layer.feature.properties.Name.replace(" ", "")).offset().top - $('.sidebar').offset().top + $('.sidebar').scrollTop()
                         })
                     });
                 }, 100);
