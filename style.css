@@ -12,6 +12,25 @@ body {
     background-color: black;
     
 }
+.modal-content{
+    background-color: black;
+}
+.header{
+    padding: 10px;
+    height: 150px;
+}
+.col1, .col2{
+    float:left;
+    width:50%;
+}
+
+.credit, .methodology{
+    text-align: right;
+}
+.methodology{
+    padding-top:17px;
+    cursor:pointer;
+}
 .sidebar {
     float: left;
     width: 25%;
@@ -23,6 +42,9 @@ body {
 }
 .panel panel-default{
     height: 50px;
+}
+.number-text{
+    font-size: smaller;
 }
 .css-icon {
 	width: 10px;

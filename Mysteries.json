@@ -109,7 +109,7 @@
     }, {
         "type": "Feature",
         "properties": {
-            "Name": "Shrewsbury Abbey",
+            "Name": "English Countryside",
             "Description": ""
         },
         "geometry": {
@@ -125,6 +125,16 @@
         "geometry": {
             "type": "Point",
             "coordinates": [-4.193384828112627, 55.06226629657601, 0]
+        }
+    }, {
+        "type": "Feature",
+        "properties": {
+            "Name": "Scotland",
+            "Description": ""
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [-4.193384828112627, 57.06226629657601, 0]
         }
     }, {
         "type": "Feature",
@@ -235,6 +245,16 @@
         "geometry": {
             "type": "Point",
             "coordinates": [-98.47708310430293, 39.01202682965933, 0]
+        }
+    },{
+        "type": "Feature",
+        "properties": {
+            "Name": "The Midwest",
+            "Description": ""
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [-94.47708310430293, 42.01202682965933, 0]
         }
     }, {
         "type": "Feature",
@@ -439,7 +459,7 @@
     }, {
         "type": "Feature",
         "properties": {
-            "Name": "Sunnyside, PA",
+            "Name": "Pennsylvania",
             "Description": ""
         },
         "geometry": {
@@ -479,7 +499,7 @@
     }, {
         "type": "Feature",
         "properties": {
-            "Name": "UP",
+            "Name": "Upper Pennisula",
             "Description": ""
         },
         "geometry": {

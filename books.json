@@ -76,9 +76,10 @@
     "null": ["Shrewsbury Abbey", ""]
 }, {
     "Title": "The Murder of Roger Ackroyd",
-    "Location": "Fictional Village of King's Abbott in England",
+    "Location": "English Countryside",
     "Author": "Agatha Christie",
-    "Year": "1926"
+    "Year": "1926",
+    "null": ["Fictional Village of King's Abbott in England", ""]
 }, {
     "Title": "The Thirty-Nine Steps",
     "Location": "Galloway",
@@ -96,7 +97,7 @@
     "Year": "1958"
 }, {
     "Title": "Beast in View",
-    "Location": "Hollywood",
+    "Location": "Los Angeles",
     "Author": "Margaret Millar",
     "Year": "1955"
 }, {
@@ -130,11 +131,6 @@
     "Location": "Kansas",
     "Author": "Truman Capote",
     "Year": "1966"
-}, {
-    "Title": "Title",
-    "Location": "Location",
-    "Author": "Author",
-    "Year": "Year"
 }, {
     "Title": "The Woman in White",
     "Location": "London",
@@ -403,7 +399,7 @@
     "Year": "1870"
 }, {
     "Title": "The Postman Always Rings Twice",
-    "Location": "rural california",
+    "Location": "Los Angeles",
     "Author": "James M. Cain",
     "Year": "1934"
 }, {
@@ -428,7 +424,7 @@
     "Year": "1974"
 }, {
     "Title": "Rebecca",
-    "Location": "southern England",
+    "Location": "English Countryside",
     "Author": "Daphne du Maurier",
     "Year": "1938"
 }, {
@@ -453,12 +449,12 @@
     "Year": "1968"
 }, {
     "Title": "Eye of the Needle",
-    "Location": "Storm Island",
+    "Location": "Scotland",
     "Author": "Ken Follett",
     "Year": "1978"
 }, {
     "Title": "The Circular Staircase",
-    "Location": "Sunnyside PA",
+    "Location": "Pennsylvania",
     "Author": "Mary Roberts Rinehart",
     "Year": "1908"
 }, {
@@ -478,17 +474,17 @@
     "Year": "1934"
 }, {
     "Title": "Presumed Innocent",
-    "Location": "The midwest",
+    "Location": "The Midwest",
     "Author": "Scott Turow",
     "Year": "1987"
 }, {
     "Title": "Home Sweet Homicide",
-    "Location": "The midwest",
+    "Location": "The Midwest",
     "Author": "Craig Rice",
     "Year": "1944"
 }, {
     "Title": "Anatomy of a Murder",
-    "Location": "UP",
+    "Location": "Upper Pennisula",
     "Author": "Robert Traver",
     "Year": "1958"
 }, {

@@ -9,6 +9,7 @@
     <script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-animate.js"></script>
     <script src="bower_components/angular-mapbox/dist/angular-mapbox.js"></script>
     <script src="../bower_components/leaflet/dist/leaflet.js"></script>
     <script src="../bower_components/angular-simple-logger/dist/index.js"></script>
@@ -28,8 +29,18 @@
 <script src="script.js"></script>
 
 <body ng-app="app">
-    <div class="h1">THE MOST MURDEROUS CITY</div>
-    <div class="h2">according to mystery novels</div>
+    <div class="header">
+        <div class="col1">
+            <div class="h1 main-title">THE MOST MURDEROUS CITY</div>
+            <div class="h2 subtitle">according to mystery novels</div>
+        </div>
+        <div class="col2">
+            <div class="h3 credit">by Jenny Seegers</div>
+            <div ng-controller="ModalController">
+                <div class="h3 methodology" ng-click="open()">Learn More</div>
+            </div>
+        </div>
+    </div>
     <div ng-controller="MapController">
         <leaflet id="map" lf-center="center" defaults=defaults tiles="tiles" width="100%" height="480px"></leaflet>
         <!--<mapbox map-id="jseegers.4a299e8d">
@@ -37,7 +48,11 @@
         </mapbox>-->
         <perfect-scrollbar class="sidebar" wheel-propagation="true" wheel-speed="10" min-scrollbar-length="20">
             <accordion close-others="true">
-                <accordion-group heading="{{location.name}}" id={{location.name}} ng-repeat="location in LocArray" is-open="location.open" ng-click="locationHighlight(location.name)">
+                <accordion-group ng-attr-id="{{cleanUpNames(location.name)}}" ng-repeat="location in LocArray" is-open="location.open" ng-click="locationHighlight(location.name)">
+                    <accordion-heading>
+                        {{location.name}}
+                        <div class="pull-right number-text">{{location.number}}</div>
+                    </accordion-heading>
                     <accordion close-others="true">
                         <accordion-group heading="{{group.title}}" ng-repeat="group in AllBooks[location.name]">
                             Author: {{group.author}}
@@ -50,7 +65,15 @@
 
     </div>
 
+    <script type="text/ng-template" id="methodology.html">
+        <div class="modal-header">
+            <h3 class="modal-title">How It Was Done</h3>
+        </div>
+        <div class="modal-body">
+            This project used books from the Mystery Writers of America's <a href="https://en.wikipedia.org/wiki/The_Top_100_Crime_Novels_of_All_Time">'The Top 100 Mystery Novels of All Time'</a>. Some books, like <a href="https://en.wikipedia.org/wiki/Ashenden:_Or_the_British_Agent">Ashenden</a>, feature multiple locations - each location is used.
+        </div>
 
+    </script>
 </body>
 
 </html>

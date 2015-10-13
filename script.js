@@ -1,4 +1,4 @@
-var app = angular.module("app", ["leaflet-directive", "ui.bootstrap", 'perfect_scrollbar']);
+var app = angular.module("app", ["leaflet-directive", "ui.bootstrap", 'perfect_scrollbar', 'ngAnimate']);
 
 /*app.controller('MapController', function ($scope, $timeout, mapboxService) {*/
 app.controller("MapController", ['$scope', '$http', 'leafletData', function ($scope, $http, leafletData) {
@@ -58,6 +58,9 @@ app.controller("MapController", ['$scope', '$http', 'leafletData', function ($sc
             //console.log(data[i].Location)
         }
     }
+    $scope.cleanUpNames = function (name) {
+        return name.replace(" ", "");
+    }
 
     function getRadius(name) {
         var checkArray = $scope.getindBooksArray(name)
@@ -65,9 +68,10 @@ app.controller("MapController", ['$scope', '$http', 'leafletData', function ($sc
     }
 
     $scope.locationHighlight = function (name) {
+        var cleanedName = name.replace(" ", "");
         resetColors();
         $('.sidebar').animate({
-            scrollTop: $('#' + name).offset().top - $('.sidebar').offset().top + $('.sidebar').scrollTop()
+            scrollTop: $('#' + cleanedName).offset().top - $('.sidebar').offset().top + $('.sidebar').scrollTop()
         })
         var latLng = {};
         $scope.geoPoints.eachLayer(function (layer) {
@@ -104,6 +108,7 @@ app.controller("MapController", ['$scope', '$http', 'leafletData', function ($sc
                 }
             }
             if ($scope.booksJson[i].Location == location) {
+                console.log("this is happening")
                 checkArray.push({
                     "title": $scope.booksJson[i].Title,
                     "author": $scope.booksJson[i].Author,
@@ -134,7 +139,8 @@ app.controller("MapController", ['$scope', '$http', 'leafletData', function ($sc
             $scope.$apply(function () {
                 $scope.LocArray.push({
                     "name": feature.properties.Name,
-                    "open": false
+                    "open": false,
+                    "number": $scope.AllBooks[feature.properties.Name].length
                 })
             })
         }, 100)
@@ -154,16 +160,16 @@ app.controller("MapController", ['$scope', '$http', 'leafletData', function ($sc
                     weight: 2
                 })
                 leafletData.getMap().then(function (map) {
-                    map.setView(layer.getLatLng(), 4, {
-                        animate: true
+                        map.setView(layer.getLatLng(), 4, {
+                            animate: true
+                        })
                     })
-                })
-                /*for (var i=0; i<$scope.LocArray.length; i++){
-                    if ($scope.LocArray[i]["name"] == feature.properties.Name){
-                        $scope.LocARray[i]["open"] = true;
-                        console.log("whee done")
-                    }
-                }*/
+                    /*for (var i=0; i<$scope.LocArray.length; i++){
+                        if ($scope.LocArray[i]["name"] == feature.properties.Name){
+                            $scope.LocARray[i]["open"] = true;
+                            console.log("whee done")
+                        }
+                    }*/
                 setTimeout(function () {
                     $scope.$apply(function () {
                         $scope.Location = feature.properties.Name;
@@ -214,3 +220,35 @@ app.controller("MapController", ['$scope', '$http', 'leafletData', function ($sc
 
     }
 }]);
+
+app.controller("ModalController", ['$scope', '$modal', '$log', function ($scope, $modal, $log)  {
+
+  $scope.animationsEnabled = true;
+
+  $scope.open = function () {
+
+    var modalInstance = $modal.open({
+      animation: $scope.animationsEnabled,
+      templateUrl: 'methodology.html',
+      controller: 'ModalInstanceCtrl'
+    });
+
+  };
+
+  $scope.toggleAnimation = function () {
+    $scope.animationsEnabled = !$scope.animationsEnabled;
+  };
+
+}]);
+
+app.controller('ModalInstanceCtrl', function ($scope, $modalInstance) {
+
+
+  $scope.ok = function () {
+    $modalInstance.close($scope.selected.item);
+  };
+
+  $scope.cancel = function () {
+    $modalInstance.dismiss('cancel');
+  };
+});
