@@ -36,6 +36,7 @@ app.controller("MapController", ['$scope', '$http', 'leafletData', function ($sc
     $scope.LocArray = [];
     $scope.AllBooks = {};
     $scope.geoPoints = {};
+    $scope.daggerMarker;
 
     $http.get("books.json").success(function (data) {
         $scope.booksJson = data;
@@ -59,7 +60,12 @@ app.controller("MapController", ['$scope', '$http', 'leafletData', function ($sc
         }
     }
     $scope.cleanUpNames = function (name) {
-        return name.replace(" ", "");
+        if (name === "New York City") {
+            return "NewYorkCity"
+        } else {
+            return name.replace(" ", "");
+        }
+
     }
 
     function getRadius(name) {
@@ -69,27 +75,40 @@ app.controller("MapController", ['$scope', '$http', 'leafletData', function ($sc
 
     $scope.locationHighlight = function (name) {
         var cleanedName = name.replace(" ", "");
+        if (name === "New York City") {
+            cleanedName = "NewYorkCity"
+        }
         resetColors();
-        $('.sidebar').animate({
-            scrollTop: $('#' + cleanedName).offset().top - $('.sidebar').offset().top + $('.sidebar').scrollTop()
-        })
         var latLng = {};
-        $scope.geoPoints.eachLayer(function (layer) {
-            if (layer.feature.properties.Name == name) {
-                layer.setStyle({
-                    fillColor: "#000",
-                    color: "red",
-                    weight: 2
-                })
-                latLng = layer.getLatLng();
-            }
+        leafletData.getMap().then(function (map) {
+            $scope.geoPoints.eachLayer(function (layer) {
+                if (layer.feature.properties.Name == name) {
+                    layer.setStyle({
+                        fillColor: "#000",
+                        color: "red",
+                        weight: 2
+                    })
+                    latLng = layer.getLatLng();
+                    $scope.daggerMarker = L.marker(layer.getLatLng(), {
+                        icon: daggerIcon
+                    }).addTo(map);
+                }
 
+            });
         });
         leafletData.getMap().then(function (map) {
             map.setView(latLng, 4, {
                 animate: true
             })
         });
+        setTimeout(function () {
+            $scope.$apply(function () {
+                $('.sidebar').animate({
+                    scrollTop: $('#' + cleanedName).offset().top - $('.sidebar').offset().top + $('.sidebar').scrollTop()
+                })
+                $('#' + cleanedName).children('.panel-heading').css("background-color", "black")
+            });
+        }, 1000);
 
     }
     $scope.getindBooksArray = function (location) {
@@ -108,7 +127,6 @@ app.controller("MapController", ['$scope', '$http', 'leafletData', function ($sc
                 }
             }
             if ($scope.booksJson[i].Location == location) {
-                console.log("this is happening")
                 checkArray.push({
                     "title": $scope.booksJson[i].Title,
                     "author": $scope.booksJson[i].Author,
@@ -121,6 +139,13 @@ app.controller("MapController", ['$scope', '$http', 'leafletData', function ($sc
     }
 
     function resetColors() {
+        for (var i = 0; i < $scope.LocArray.length; i++) {
+            var cleanedName = $scope.LocArray[i]["name"].replace(" ", "");
+            if ($scope.LocArray[i]["name"] === "New York City") {
+                cleanedName = "NewYorkCity"
+            }
+            $('#' + cleanedName).children('.panel-heading').css("background-color", "#333")
+        }
         $scope.geoPoints.eachLayer(function (layer) {
             layer.setStyle({
                 fillColor: "red",
@@ -128,7 +153,11 @@ app.controller("MapController", ['$scope', '$http', 'leafletData', function ($sc
                 weight: 1
             })
         });
+        leafletData.getMap().then(function (map) {
+            map.removeLayer($scope.daggerMarker)
+        })
     }
+
 
     function onEachFeature(feature, layer) {
         /*        if (feature.properties && feature.properties.Name) {
@@ -160,25 +189,28 @@ app.controller("MapController", ['$scope', '$http', 'leafletData', function ($sc
                     weight: 2
                 })
                 leafletData.getMap().then(function (map) {
-                        map.setView(layer.getLatLng(), 4, {
-                            animate: true
-                        })
+                    map.setView(layer.getLatLng(), 4, {
+                        animate: true
                     })
-                    /*for (var i=0; i<$scope.LocArray.length; i++){
-                        if ($scope.LocArray[i]["name"] == feature.properties.Name){
-                            $scope.LocARray[i]["open"] = true;
-                            console.log("whee done")
-                        }
-                    }*/
+                    $scope.daggerMarker = L.marker(layer.getLatLng(), {
+                        icon: daggerIcon
+                    }).addTo(map);
+
+                })
+                var cleanedName = feature.properties.Name.replace(" ", "");
+                if (feature.properties.Name === "New York City") {
+                    cleanedName = "NewYorkCity"
+                }
                 setTimeout(function () {
                     $scope.$apply(function () {
                         $scope.Location = feature.properties.Name;
                         $scope.LocArray
                         $('.sidebar').animate({
-                            scrollTop: $('#' + layer.feature.properties.Name).offset().top - $('.sidebar').offset().top + $('.sidebar').scrollTop()
+                            scrollTop: $('#' + cleanedName).offset().top - $('.sidebar').offset().top + $('.sidebar').scrollTop()
                         })
+                        $('#' + cleanedName).children('.panel-heading').css("background-color", "black")
                     });
-                }, 100);
+                }, 1000);
             }
         });
 
@@ -191,16 +223,21 @@ app.controller("MapController", ['$scope', '$http', 'leafletData', function ($sc
         opacity: 1,
         fillOpacity: 0.6
     };
+    var daggerIcon = L.icon({
+        iconUrl: 'dagger_icon.svg',
+        iconSize: [30, 30],
+        iconAnchor: [15, 30]
+    })
     var myIcon = L.divIcon({
-        className: 'trigger'
+        className: 'my-dagger-icon'
     });
-
 
     function addGeoJsonLayer(data) {
         leafletData.getMap().then(function (map) {
             $scope.geoPoints = L.geoJson(data, {
                 onEachFeature: onEachFeature,
                 pointToLayer: function (feature, latlng) {
+                    //return L.marker(latlng, {icon: daggerIcon}).addTo(map);
                     return L.circleMarker(latlng, geojsonMarkerOptions);
                 }
             }).addTo(map)
@@ -221,34 +258,34 @@ app.controller("MapController", ['$scope', '$http', 'leafletData', function ($sc
     }
 }]);
 
-app.controller("ModalController", ['$scope', '$modal', '$log', function ($scope, $modal, $log)  {
+app.controller("ModalController", ['$scope', '$modal', '$log', function ($scope, $modal, $log) {
 
-  $scope.animationsEnabled = true;
+    $scope.animationsEnabled = true;
 
-  $scope.open = function () {
+    $scope.open = function () {
 
-    var modalInstance = $modal.open({
-      animation: $scope.animationsEnabled,
-      templateUrl: 'methodology.html',
-      controller: 'ModalInstanceCtrl'
-    });
+        var modalInstance = $modal.open({
+            animation: $scope.animationsEnabled,
+            templateUrl: 'methodology.html',
+            controller: 'ModalInstanceCtrl'
+        });
 
-  };
+    };
 
-  $scope.toggleAnimation = function () {
-    $scope.animationsEnabled = !$scope.animationsEnabled;
-  };
+    $scope.toggleAnimation = function () {
+        $scope.animationsEnabled = !$scope.animationsEnabled;
+    };
 
 }]);
 
 app.controller('ModalInstanceCtrl', function ($scope, $modalInstance) {
 
 
-  $scope.ok = function () {
-    $modalInstance.close($scope.selected.item);
-  };
+    $scope.ok = function () {
+        $modalInstance.close($scope.selected.item);
+    };
 
-  $scope.cancel = function () {
-    $modalInstance.dismiss('cancel');
-  };
+    $scope.cancel = function () {
+        $modalInstance.dismiss('cancel');
+    };
 });

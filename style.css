@@ -15,6 +15,9 @@ body {
 .modal-content{
     background-color: black;
 }
+.modal-body{
+    font-family: 'Roboto', sans-serif;
+}
 .header{
     padding: 10px;
     height: 150px;
@@ -27,8 +30,11 @@ body {
 .credit, .methodology{
     text-align: right;
 }
+.credit{
+    padding-top:30px;
+
+}
 .methodology{
-    padding-top:17px;
     cursor:pointer;
 }
 .sidebar {
@@ -43,8 +49,19 @@ body {
 .panel panel-default{
     height: 50px;
 }
+.panel-heading:hover{
+    background-color:black;
+    border-color:black;
+}
+.panel-heading:focus{
+    background-color:black;
+    border-color:black;
+}
 .number-text{
     font-size: smaller;
+}
+.my-dagger-icon{
+    background-image: url("dagger_icon.svg");
 }
 .css-icon {
 	width: 10px;
@@ -54,4 +71,13 @@ body {
 	-webkit-border-radius: 50%;
 	border-radius: 50%;
     opacity: .5;
+}
+a{
+    color: red;
+}
+a:hover{
+    color:darkred;
+}
+a:focus{
+    outline: none;
 }
