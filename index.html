@@ -9,10 +9,10 @@
     <script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-animate.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
     <script src="bower_components/angular-mapbox/dist/angular-mapbox.js"></script>
-    <script src="../bower_components/leaflet/dist/leaflet.js"></script>
-    <script src="../bower_components/angular-simple-logger/dist/index.js"></script>
+    <script src="bower_components/leaflet/dist/leaflet.js"></script>
+    <script src="bower_components/angular-simple-logger/dist/index.js"></script>
     <script src="bower_components/angular-leaflet-directive/dist/angular-leaflet-directive.js"></script>
     <link rel="stylesheet" href="bower_components/perfect-scrollbar/min/perfect-scrollbar.min.css" />
     <script src="bower_components/perfect-scrollbar/min/perfect-scrollbar.min.js"></script>
@@ -43,9 +43,6 @@
     </div>
     <div ng-controller="MapController">
         <leaflet id="map" lf-center="center" defaults=defaults tiles="tiles" width="100%" height="480px"></leaflet>
-        <!--<mapbox map-id="jseegers.4a299e8d">
-            <feature-layer url="Mysteries.json" symbol="grocery"></feature-layer>
-        </mapbox>-->
         <perfect-scrollbar class="sidebar" wheel-propagation="true" wheel-speed="10" min-scrollbar-length="20">
             <accordion close-others="true">
                 <accordion-group ng-attr-id="{{cleanUpNames(location.name)}}" ng-repeat="location in LocArray" is-open="location.open" ng-click="locationHighlight(location.name)">
