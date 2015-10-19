@@ -60,20 +60,11 @@ app.controller("MapController", ['$scope', '$http', 'leafletData', function ($sc
         }
     }
     $scope.cleanUpNames = function (name) {
-<<<<<<< HEAD
-        if (name === "New York City") {
-            return "NewYorkCity"
-        } else {
-            return name.replace(" ", "");
-        }
-
-=======
         var cleanedName = name.replace(" ", "");
         if (cleanedName == "NewYork City"){
          cleanedName = "NewYorkCity";
         }
         return cleanedName;
->>>>>>> origin/master
     }
 
     function getRadius(name) {
@@ -87,15 +78,6 @@ app.controller("MapController", ['$scope', '$http', 'leafletData', function ($sc
             cleanedName = "NewYorkCity"
         }
         resetColors();
-<<<<<<< HEAD
-=======
-        if (cleanedName == "NewYork City"){
-         cleanedName = "NewYorkCity";
-        }
-        $('.sidebar').animate({
-            scrollTop: $('#' + cleanedName).offset().top - $('.sidebar').offset().top + $('.sidebar').scrollTop()
-        })
->>>>>>> origin/master
         var latLng = {};
         leafletData.getMap().then(function (map) {
             $scope.geoPoints.eachLayer(function (layer) {
@@ -223,11 +205,7 @@ app.controller("MapController", ['$scope', '$http', 'leafletData', function ($sc
                         $scope.Location = feature.properties.Name;
                         $scope.LocArray
                         $('.sidebar').animate({
-<<<<<<< HEAD
                             scrollTop: $('#' + cleanedName).offset().top - $('.sidebar').offset().top + $('.sidebar').scrollTop()
-=======
-                            scrollTop: $('#' + layer.feature.properties.Name.replace(" ", "")).offset().top - $('.sidebar').offset().top + $('.sidebar').scrollTop()
->>>>>>> origin/master
                         })
                         $('#' + cleanedName).children('.panel-heading').css("background-color", "black")
                     });
